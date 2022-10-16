@@ -2,6 +2,8 @@
 
 Welcome to EASL (Experimental Analytical Systems Lab; pronounced *easel*). A framework for developing explainable artificial intelligence-enabled clinical decision support systems (XAI-CDSS) and administering usability tests. The framework supports the following tasks: data import, model creation, visual interactive design, and testing.
 
+![screenshot](./screenshot_10-22.png)
+
 ## About
 
 Detailed documentation for EASL functionality can be found at on the [wiki](https://github.com/LeRicNet/easl/wiki) or through the links below.
