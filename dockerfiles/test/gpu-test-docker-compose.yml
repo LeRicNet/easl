@@ -1,0 +1,9 @@
+services:
+  test:
+    image: tensorflow/tensorflow:2.9.2-gpu-jupyter
+    command: python -c "import tensorflow as tf; print(tf.__version__); tf.test.gpu_device_name()"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
