@@ -4,6 +4,10 @@ Welcome to EASL (Experimental Analytical Systems Lab; pronounced *easel*). A fra
 
 ## About
 
+Detailed documentation for EASL functionality can be found at on the [wiki](https://github.com/LeRicNet/easl/wiki) or through the links below.
+
+ -  [Data](https://github.com/LeRicNet/easl/wiki/Data-I-O)
+
 ## Publications
 
 ### Backend/Frontend Interface
