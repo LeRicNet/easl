@@ -1,6 +1,7 @@
 ![logo](./easl-logo.svg)
-
-<img src="./easl-logo.svg" alt='logo' height='80'/>
+<div class="center">
+    <img src="./easl-logo.svg" alt='logo' height='120'/>
+</div>
 
 Welcome to EASL (Experimental Analytical Systems Lab; pronounced *easel*). A framework for developing explainable artificial intelligence-enabled clinical decision support systems (XAI-CDSS) and administering usability tests. The framework supports the following tasks: data import, model creation, visual interactive design, and testing.
 
