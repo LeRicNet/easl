@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
+use Illuminate\Support\Facades\Storage;
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -21,6 +23,19 @@ class RegisteredUserController extends Controller
     public function create()
     {
         return view('auth.register');
+    }
+
+    /**
+     * User directory ops
+     *
+     * @return bool
+     */
+    public function maybe_maker_user_directory($userid)
+    {
+        $out_dir = "public/active-users/";
+        $user_directory = $out_dir . $userid;
+
+        return is_dir($user_directory) || Storage::makeDirectory($user_directory);
     }
 
     /**
@@ -44,6 +59,10 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        # Create new directory for user
+        $this->maybe_maker_user_directory('test');
+
 
         event(new Registered($user));
 
