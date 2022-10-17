@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+//Route::get('/', function () {
+//    return view('home');
+//});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -72,3 +72,11 @@ Route::get("/user-study", function () {
 
 // Emails
 Route::get('/send/email', [\App\Http\Controllers\OrderShipment::class, 'mail']);
+
+Route::get('/', function () {
+    return view('landing');
+});
+
+#######
+# Landing Page
+
