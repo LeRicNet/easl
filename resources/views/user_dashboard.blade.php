@@ -52,65 +52,12 @@
 <div class="grid grid-cols-2 grid-rows-2">
 
 
-    <div style="display: block;"
-         class="content-center align-content-center
-        m-1 border border-solid border-gray-500 rounded shadow">
-
-        <div class="flex grid-flow-col" style="height: 100%;">
-            <div class="flex-none w-14 bg-gray-200 mt-2 mb-2">
-                <!-- Vertical Tabs for different dashboards -->
-                <div class="flex-none grid grid-rows-4">
-                    <button class="bg-gray-600 rounded opacity-75
-                    border border-solid border-gray-900
-                    pt-6 pb-6 mt-2 ml-1 shadow">
-                        <p style="transform: rotate(-90deg)"
-                           class="text-xl text-blue-100 text-center m-0">users</p>
-                    </button>
-                    <button class="bg-white rounded opacity-75 pt-6 pb-6
-                    border border-solid border-gray-900
-                    ml-1 shadow
-                    hover:bg-blue-100">
-                        <p style="transform: rotate(-90deg)"
-                           class="text-xl text-gray-600 text-center m-0">data</p>
-                    </button>
-                    <button class="bg-white rounded opacity-75 pt-6 pb-6
-                    border border-solid border-gray-900
-                    ml-1 shadow
-                    hover:bg-gray-200">
-                        <p style="transform: rotate(-90deg)"
-                           class="text-xl text-gray-600 text-center m-0">models</p>
-                    </button>
-                    <button class="bg-white rounded opacity-75 pt-6 pb-6
-                    border border-solid border-gray-900
-                    ml-1 shadow
-                    hover:bg-gray-200">
-                        <p style="transform: rotate(-90deg)"
-                           class="text-xl text-gray-600 text-center m-0">visuals</p>
-                    </button>
-
-                </div>
-                <!-- End Vertical Tabs for different dashboards -->
-            </div>
-            <div class="block border border-solid border-l-4 border-gray-600 mt-2 mr-2 mb-2"
-                 style="display: block; width: 100%; height: auto;">
-
-                <!-- data tab -->
-                <div style="height: 100%; width: 100%; position: relative;">
-                    <button type='submit' class="fa fa-external-link-alt
-                    mt-1 mr-1
-                     text-2xl text-white opacity-50 hover:opacity-100"
-                            style="position: absolute; top: 3px; right: 5px; z-index: 2;"
-                            aria-hidden="true"
-                    onclick="window.open('viewer', 'viewer', 'menubar=no');"></button>
-                    <iframe class="shadow shadow-black w-full h-full" src="viewer"></iframe>
-                </div>
-
-            </div>
+    <div style="height: 50vh;">
+        <div class="text-5xl text-center m-1 border border-1 border-solid border-gray-500 rounded shadow" style="height: 100%;">
+            Project Notes
+            <i class="fa fa-solid fa-external-link-alt" aria-hidden="true"></i>
         </div>
-
     </div>
-
-
 
     <div style="height: 50vh;">
         <div class=" m-1 border border-1 border-solid border-gray-500 rounded shadow" style="height: 100%;">
@@ -143,57 +90,80 @@
             </div>
         </div>
     </div>
-    <div style="height: 50vh;">
-        <div class="text-5xl text-center m-1 border border-1 border-solid border-gray-500 rounded shadow" style="height: 100%;">
-            Project Notes
-            <i class="fa fa-solid fa-external-link-alt" aria-hidden="true"></i>
-        </div>
-    </div>
-    <div style="height: 50vh;">
-        <div class="m-1 border border-1 border-solid border-gray-500 rounded shadow" style="height: 100%;">
 
-            <div class="flex grid-flow-col" style="height: 100%;">
-                <div class="flex-none w-14 bg-gray-200 mt-2 mb-2">
-                    <!-- Vertical Tabs for different dashboards -->
-                    <div class="flex-none grid grid-rows-4">
-                        <button class="bg-gray-600 rounded opacity-75
+    <div style="display: block;"
+    class="content-center align-content-center
+        m-1 border border-solid border-gray-500 rounded shadow">
+
+        <!-- jupyter -->
+        <div style="height: 100%; width: 100%; position: relative;">
+            <button type='submit' class="fa fa-external-link-alt
+                    mt-1 mr-1
+                     text-2xl text-white opacity-50 hover:opacity-100"
+                    style="position: absolute; top: 3px; right: 5px; z-index: 2;"
+                    aria-hidden="true"
+                    onclick="window.open('lab', 'lab', 'menubar=no');"></button>
+            <iframe class="shadow shadow-black w-full h-full" src="lab"></iframe>
+        </div>
+
+    </div>
+
+    <div style="display: block;"
+         class="content-center align-content-center
+        m-1 border border-solid border-gray-500 rounded shadow">
+
+        <div class="flex grid-flow-col" style="height: 100%;">
+            <div class="flex-none w-14 bg-gray-200 mt-2 mb-2">
+                <!-- Vertical Tabs for different dashboards -->
+                <div class="flex-none grid grid-rows-4">
+                    <button class="bg-gray-600 rounded opacity-75
                     border border-solid border-gray-900
                     pt-6 pb-6 mt-2 ml-1 shadow">
-                            <p style="transform: rotate(-90deg)"
-                               class="text-xl text-blue-100 text-center m-0">users</p>
-                        </button>
-                        <button class="bg-white rounded opacity-75 pt-6 pb-6
+                        <p style="transform: rotate(-90deg)"
+                           class="text-xl text-blue-100 text-center m-0">users</p>
+                    </button>
+                    <button class="bg-white rounded opacity-75 pt-6 pb-6 mt-1
                     border border-solid border-gray-900
                     ml-1 shadow
                     hover:bg-blue-100">
-                            <p style="transform: rotate(-90deg)"
-                               class="text-xl text-gray-600 text-center m-0">data</p>
-                        </button>
-                        <button class="bg-white rounded opacity-75 pt-6 pb-6
+                        <p style="transform: rotate(-90deg)"
+                           class="text-xl text-gray-600 text-center m-0">data</p>
+                    </button>
+                    <button class="bg-white rounded opacity-75 pt-6 pb-6 mt-1
                     border border-solid border-gray-900
                     ml-1 shadow
                     hover:bg-gray-200">
-                            <p style="transform: rotate(-90deg)"
-                               class="text-xl text-gray-600 text-center m-0">models</p>
-                        </button>
-                        <button class="bg-white rounded opacity-75 pt-6 pb-6
+                        <p style="transform: rotate(-90deg)"
+                           class="text-xl text-gray-600 text-center m-0">models</p>
+                    </button>
+                    <button class="bg-white rounded opacity-75 pt-6 pb-6 mt-1
                     border border-solid border-gray-900
                     ml-1 shadow
                     hover:bg-gray-200">
-                            <p style="transform: rotate(-90deg)"
-                               class="text-xl text-gray-600 text-center m-0">visuals</p>
-                        </button>
+                        <p style="transform: rotate(-90deg)"
+                           class="text-xl text-gray-600 text-center m-0">visuals</p>
+                    </button>
 
-                    </div>
-                    <!-- End Vertical Tabs for different dashboards -->
                 </div>
-                <div class="block border border-solid border-l-4 border-gray-600 mt-2 mr-2 mb-2"
-                     style="display: block; width: 100%; height: auto;">
-                    c2
-                </div>
+                <!-- End Vertical Tabs for different dashboards -->
             </div>
+            <div class="block border border-solid border-l-4 border-gray-600 mt-2 mr-2 mb-2"
+                 style="display: block; width: 100%; height: auto;">
 
+                <!-- data tab -->
+                <div style="height: 100%; width: 100%; position: relative;">
+                    <button type='submit' class="fa fa-external-link-alt
+                    mt-1 mr-1
+                     text-2xl text-white opacity-50 hover:opacity-100"
+                            style="position: absolute; top: 3px; right: 5px; z-index: 2;"
+                            aria-hidden="true"
+                            onclick="window.open('viewer', 'viewer', 'menubar=no');"></button>
+                    <iframe class="shadow shadow-black w-full h-full" src="viewer"></iframe>
+                </div>
+
+            </div>
         </div>
+
     </div>
 </div>
 
