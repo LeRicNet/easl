@@ -107,25 +107,6 @@ services:
                     devices:
                         - capabilities: [gpu]
 
-#    tensorflow.gpu:
-##        image: 'amalic/jupyterlab'
-#        image: 'xcxlab/jupyterlab-gpu:1.0.0b'
-#        container_name: 'xcxlab_jupyterlab-GPU'
-#        ports:
-#            - 8888:8888
-#        volumes:
-#            - ${JUPYTER_CONFIG}:/root/.jupyter/
-#            - ${JUPYTER_STARTUP}:/root/.ipython/profile_default/startup/
-#        links:
-#            - orthanc
-#        networks:
-#            - backend
-#        deploy:
-#            resources:
-#                reservations:
-#                    devices:
-#                        -   capabilities: [ gpu ]
-
     rstudio:
         image: 'xcxlab/rstudio' # Dockerfile located in xcxlab/dockerfiles/rstudio
         container_name: 'xcxlab_rstudio'

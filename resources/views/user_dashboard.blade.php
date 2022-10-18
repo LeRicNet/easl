@@ -51,44 +51,38 @@
 
 <div class="grid grid-cols-2 grid-rows-2">
 
+    <div style="display: block; height: 50vh;"
+         class="content-center align-content-center
+        m-1 border border-solid border-gray-500 rounded shadow">
 
-    <div style="height: 50vh;">
-        <div class="text-5xl text-center m-1 border border-1 border-solid border-gray-500 rounded shadow" style="height: 100%;">
-            Project Notes
-            <i class="fa fa-solid fa-external-link-alt" aria-hidden="true"></i>
+        <!-- rstudio -->
+        <div style="height: 100%; width: 100%; position: relative;">
+            <button type='submit' class="fa fa-external-link-alt
+                    mt-1 mr-1
+                     text-2xl text-gray-300 opacity-50 hover:text-gray-600"
+                    style="position: absolute; top: 3px; right: 5px; z-index: 2;"
+                    aria-hidden="true"
+                    onclick="window.open('/bpmn', 'bpmn', 'menubar=no');"></button>
+            <iframe class="shadow shadow-black w-full h-full" src="/bpmn"></iframe>
         </div>
+
     </div>
 
-    <div style="height: 50vh;">
-        <div class=" m-1 border border-1 border-solid border-gray-500 rounded shadow" style="height: 100%;">
-            <div class="grid grid-flow-row-dense grid-cols-12">
-                <div class='col-span-1'>
-                    <!-- Vertical Tabs for different dashboards -->
-                    <div class="block flex-none grid grid-rows-4" style="height: 100%; width: 32px;">
-                        <div class="bg-gray-600 rounded opacity-75 mb-0">
-                            <p style="transform: rotate(-90deg); margin-top: 64px;"
-                               class="text-xl text-white m-0">users</p>
-                        </div>
-                        <div class="bg-white border border-2 border-solid rounded hover:bg-gray-200">
-                            <p style="transform: rotate(-90deg); margin-top: 64px;">data</p>
-                        </div>
-                        <div class="bg-white border border-2 border-solid rounded hover:bg-gray-200">
-                            <p style="transform: rotate(-90deg); margin-top: 64px;">models</p>
-                        </div>
-                        <div class="bg-white border border-2 border-solid rounded hover:bg-gray-200">
-                            <p style="transform: rotate(-90deg); margin-top: 64px;">visuals</p>
-                        </div>
-                    </div>
-                    <!-- End Vertical Tabs for different dashboards -->
-                </div>
-                <div class="col-span-11">
-                    <!-- Dashboard Content -->
-                    <div class="flex-grow border border-solid rounded m-2" style="height: 100%; width: 100%;">
-                        dashboard container
-                    </div>
-                </div>
-            </div>
+    <div style="display: block;"
+         class="content-center align-content-center
+        m-1 border border-solid border-gray-500 rounded shadow">
+
+        <!-- rstudio -->
+        <div style="height: 100%; width: 100%; position: relative;">
+            <button type='submit' class="fa fa-external-link-alt
+                    mt-1 mr-1
+                     text-2xl text-white opacity-50 hover:opacity-100"
+                    style="position: absolute; top: 3px; right: 5px; z-index: 2;"
+                    aria-hidden="true"
+                    onclick="window.open('/rstudio', 'rstudio', 'menubar=no');"></button>
+            <iframe class="shadow shadow-black w-full h-full" src="/rstudio"></iframe>
         </div>
+
     </div>
 
     <div style="display: block;"
@@ -151,6 +145,8 @@
                  style="display: block; width: 100%; height: auto;">
 
                 <!-- data tab -->
+{{--            Check for header mods here: --}}
+{{--                /easl/public/vendor/Viewers/platform/viewer/src/components/Header/Header.js--}}
                 <div style="height: 100%; width: 100%; position: relative;">
                     <button type='submit' class="fa fa-external-link-alt
                     mt-1 mr-1
@@ -166,26 +162,6 @@
 
     </div>
 </div>
-
-{{--<div class="grid grid-cols-1 h-full">--}}
-{{--    <div class="h-full border border-solid border-gray-500 bg-white--}}
-{{--    shadow-2xl m-1">box1</div>--}}
-{{--    <div class="h-full border border-solid border-gray-500 bg-white--}}
-{{--    shadow-2xl m-1">box2</div>--}}
-{{--    <div class="h-full border border-solid border-gray-500 bg-white--}}
-{{--    shadow-2xl m-1">box3</div>--}}
-{{--    <div class="h-full border border-solid border-gray-500 bg-white--}}
-{{--    shadow-2xl m-1">box4</div>--}}
-{{--</div>--}}
-
-{{--<script>--}}
-{{--    function addProjectTab() {--}}
-{{--        project_tabs = document.getElementById("dashboard-tabs");--}}
-{{--        project_tabs.innerHTML = project_tabs.innerHTML +--}}
-{{--            '<li class="mr-2"> <a href="#" class="inline-block text-gray-500 hover:text-gray-600 ' +--}}
-{{--            'hover:bg-gray-50 rounded-t-lg py-4 px-4 text-sm font-medium text-center active" aria-current="page">Project 2</a> </li>'--}}
-{{--    };--}}
-{{--</script>--}}
 
 @livewireScripts
 </body>
