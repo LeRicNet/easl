@@ -3,11 +3,11 @@
 
     <div class="border border-solid">
         Project Data
-        <table class="table-bordered text-center">
+        <table class="table-auto text-center align-content-center ml-1">
             <tr>
-                <th>Dataset Name</th>
-                <th>Version</th>
-                <th>Type</th>
+                <th class="border border-gray-500">Dataset Name</th>
+                <th class="border border-gray-500">Version</th>
+                <th class="border border-gray-500">Type</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -18,14 +18,16 @@
                 <td>
                     <div class="border border-solid
                     border-gray-500 rounded shadow
-                    m-1 pl-1 pr-1">
+                    m-1 pl-1 pr-1
+                    hover:bg-gray-200 hover:text-gray-800">
                         View
                     </div>
                 </td>
                 <td>
                     <div class="border border-solid
                     border-gray-500 rounded shadow
-                    m-1 pl-1 pr-1">
+                    m-1 pl-1 pr-1
+                    hover:bg-gray-200 hover:text-gray-800">
                         Info
                     </div>
                 </td>
@@ -37,14 +39,16 @@
                 <td>
                     <div class="border border-solid
                     border-gray-500 rounded shadow
-                    m-1 pl-1 pr-1">
+                    m-1 pl-1 pr-1
+                    hover:bg-gray-200 hover:text-gray-800">
                         View
                     </div>
                 </td>
                 <td>
                     <div class="border border-solid
                     border-gray-500 rounded shadow
-                    m-1 pl-1 pr-1">
+                    m-1 pl-1 pr-1
+                    hover:bg-gray-200 hover:text-gray-800">
                         Info
                     </div>
                 </td>
@@ -52,4 +56,80 @@
         </table>
     </div>
 
+    <div class="border border-solid mt-5">
+        Project Models
+        <table class="table-auto text-center align-content-center ml-1">
+            <tr>
+                <th class="border border-gray-500">Name</th>
+                <th class="border border-gray-500">Version</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>ACP-example</td>
+                <td>1</td>
+                <td></td>
+                <td>
+                    <div class="border border-solid
+                    border-gray-500 rounded shadow
+                    m-1 pl-1 pr-1
+                    hover:bg-gray-200 hover:text-gray-800">
+                        View
+                    </div>
+                </td>
+                <td>
+                    <div class="border border-solid
+                    border-gray-500 rounded shadow
+                    m-1 pl-1 pr-1
+                    hover:bg-gray-200 hover:text-gray-800">
+                        Info
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="border border-solid mt-5">
+        Project Visualizations
+        <table class="table-auto text-center align-content-center ml-1">
+            <tr>
+                <th class="border border-gray-500">Name</th>
+                <th class="border border-gray-500">Version</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>TensorFlow WIT Example</td>
+                <td>1</td>
+                <td></td>
+                <td>
+                    <div class="border border-solid
+                    border-gray-500 rounded shadow
+                    m-1 pl-1 pr-1
+                    hover:bg-gray-200 hover:text-gray-800">
+                        View
+                    </div>
+                </td>
+                <td>
+                    <div class="border border-solid
+                    border-gray-500 rounded shadow
+                    m-1 pl-1 pr-1
+                    hover:bg-gray-200 hover:text-gray-800">
+                        Info
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="border border-solid mt-5">
+        <button class="button" onclick="logging('{{ storage_path('user1') }}')">Controller!</button>
+    </div>
+
 @endsection
+
+<script>
+    function logging(msg) {
+        console.log(msg)
+    }
+</script>

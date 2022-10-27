@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\DataUpload;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,3 +85,7 @@ Route::get('/', function () {
 Route::get('userdashboard', function () {
     return view('user_dashboard');
 })->middleware(['auth'])->name('user_dashboard');
+
+
+## Controllers
+Route::get("/test-controller-route", [DataUpload::class, 'upload']);
