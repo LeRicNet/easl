@@ -31,7 +31,6 @@ PHP and JavaScript backend provided by [Laravel](https://laravel.com/). Bootstra
 Please report any issues, comments, or questions to Eric Prince via email Eric.Prince@CUAnschutz.edu, or [file an issue](https://github.com/LeRicNet/systemtwo/issues).
 
 ## Acknowledgements
-This work was supported by NIH/NCATS Colorado CTSA Grant Number TL1 TR002533. Contents are the authors’ sole responsibility and do not necessarily represent official NIH views. In addition, the authors wish to thank the Morgan Adams Foundation for Pediatric Brain Tumor Research, the Children's Hospital Colorado Center for Children's Surgery and the National Library of Medicine for their support of this project.
-This work was funded by the [Morgan Adams Foundation for Pediatric Brain Tumor Research](https://www.morganadamsfoundation.org/?gclid=Cj0KCQiA0p2QBhDvARIsAACSOOMVd2YC_hwbaZ_9JnfqNG5_gkrmuNT3id6ygwikIaISFkod13PyJsgaAi85EALw_wcB).
+This work was supported by NIH/NCATS Colorado CTSA Grant Number TL1 TR002533. Contents are the authors’ sole responsibility and do not necessarily represent official NIH views. In addition, the authors wish to thank the Children's Hospital Colorado Center for Children's Surgery, the National Library of Medicine, the National Center for Advancing Translational Sciences, and the [Morgan Adams Foundation for Pediatric Brain Tumor Research](https://www.morganadamsfoundation.org/?gclid=Cj0KCQiA0p2QBhDvARIsAACSOOMVd2YC_hwbaZ_9JnfqNG5_gkrmuNT3id6ygwikIaISFkod13PyJsgaAi85EALw_wcB) for their support of this project.
 
 

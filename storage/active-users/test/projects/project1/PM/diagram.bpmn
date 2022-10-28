@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+  <collaboration id="sid-c0e745ff-361e-4afb-8c8d-2a1fc32b1424">
+    <participant id="sid-87F4C1D6-25E1-4A45-9DA7-AD945993D06F" name="Research Scientist" processRef="sid-C3803939-0872-457F-8336-EAE484DC4A04" />
+    <participant id="Participant_0imgg8d" name="Software: Seurat" processRef="Process_0fa1nl8" />
+    <messageFlow id="Flow_0qlfbvh" sourceRef="Activity_0pxqr9w" targetRef="Activity_1x1bsex" />
+    <messageFlow id="Flow_0fzri8b" sourceRef="Activity_1x1bsex" targetRef="Activity_0pxqr9w" />
+    <messageFlow id="Flow_0y4gclo" sourceRef="Activity_0616s54" targetRef="Activity_1un46ub" />
+    <messageFlow id="Flow_1q109gr" sourceRef="Activity_1un46ub" targetRef="Activity_0616s54" />
+  </collaboration>
+  <process id="sid-C3803939-0872-457F-8336-EAE484DC4A04" name="Customer" processType="None" isClosed="false" isExecutable="false">
+    <extensionElements />
+    <laneSet id="sid-b167d0d7-e761-4636-9200-76b7f0e8e83a">
+      <lane id="sid-57E4FE0D-18E4-478D-BC5D-B15164E93254">
+        <flowNodeRef>sid-D7F237E8-56D0-4283-A3CE-4F0EFE446138</flowNodeRef>
+        <flowNodeRef>sid-52EB1772-F36E-433E-8F5B-D5DFD26E6F26</flowNodeRef>
+        <flowNodeRef>sid-E49425CF-8287-4798-B622-D2A7D78EF00B</flowNodeRef>
+        <flowNodeRef>sid-E433566C-2289-4BEB-A19C-1697048900D2</flowNodeRef>
+        <flowNodeRef>Activity_0pxqr9w</flowNodeRef>
+        <flowNodeRef>Activity_1un46ub</flowNodeRef>
+      </lane>
+    </laneSet>
+    <startEvent id="sid-D7F237E8-56D0-4283-A3CE-4F0EFE446138" name="Previous knowledge of ACP pathology acquired">
+      <outgoing>Flow_1ejkxk6</outgoing>
+    </startEvent>
+    <task id="sid-52EB1772-F36E-433E-8F5B-D5DFD26E6F26" name="Identify Hypotheses of Interest">
+      <incoming>Flow_1ejkxk6</incoming>
+      <outgoing>sid-EE8A7BA0-5D66-4F8B-80E3-CC2751B3856A</outgoing>
+    </task>
+    <task id="sid-E49425CF-8287-4798-B622-D2A7D78EF00B" name="Collect Experimental Data">
+      <incoming>sid-EE8A7BA0-5D66-4F8B-80E3-CC2751B3856A</incoming>
+      <outgoing>sid-57EB1F24-BD94-479A-BF1F-57F1EAA19C6C</outgoing>
+    </task>
+    <dataStoreReference id="DataStoreReference_0a3l6db" />
+    <endEvent id="sid-E433566C-2289-4BEB-A19C-1697048900D2" name="Knowledge of ACP pathology expanded">
+      <incoming>Flow_1vw3m49</incoming>
+    </endEvent>
+    <sequenceFlow id="Flow_1ejkxk6" sourceRef="sid-D7F237E8-56D0-4283-A3CE-4F0EFE446138" targetRef="sid-52EB1772-F36E-433E-8F5B-D5DFD26E6F26" />
+    <sequenceFlow id="sid-EE8A7BA0-5D66-4F8B-80E3-CC2751B3856A" sourceRef="sid-52EB1772-F36E-433E-8F5B-D5DFD26E6F26" targetRef="sid-E49425CF-8287-4798-B622-D2A7D78EF00B" />
+    <sequenceFlow id="sid-57EB1F24-BD94-479A-BF1F-57F1EAA19C6C" sourceRef="sid-E49425CF-8287-4798-B622-D2A7D78EF00B" targetRef="Activity_0pxqr9w" />
+    <task id="Activity_0pxqr9w" name="Assess Sample Heterogeneity">
+      <incoming>sid-57EB1F24-BD94-479A-BF1F-57F1EAA19C6C</incoming>
+      <outgoing>Flow_0e95c4x</outgoing>
+    </task>
+    <sequenceFlow id="Flow_0e95c4x" sourceRef="Activity_0pxqr9w" targetRef="Activity_1un46ub" />
+    <task id="Activity_1un46ub" name="Assess Transcriptional Gene Signatures">
+      <incoming>Flow_0e95c4x</incoming>
+      <outgoing>Flow_1vw3m49</outgoing>
+    </task>
+    <sequenceFlow id="Flow_1vw3m49" sourceRef="Activity_1un46ub" targetRef="sid-E433566C-2289-4BEB-A19C-1697048900D2" />
+    <textAnnotation id="TextAnnotation_0k4znrx">
+      <text>single-cell, single nuclei, &amp; visium RNA seq</text>
+    </textAnnotation>
+    <association id="Association_0p5b98b" sourceRef="DataStoreReference_0a3l6db" targetRef="TextAnnotation_0k4znrx" />
+  </process>
+  <process id="Process_0fa1nl8" name="Customer" processType="None" isClosed="false" isExecutable="false">
+    <laneSet id="LaneSet_1kpmll5">
+      <lane id="Lane_19933ua">
+        <flowNodeRef>Activity_1x1bsex</flowNodeRef>
+        <flowNodeRef>Activity_0616s54</flowNodeRef>
+      </lane>
+    </laneSet>
+    <task id="Activity_1x1bsex" name="SCTransform() &#38; FindNeighbors()" />
+    <task id="Activity_0616s54" name="FindMarkers()" />
+  </process>
+  <bpmndi:BPMNDiagram id="sid-74620812-92c4-44e5-949c-aa47393d3830">
+    <bpmndi:BPMNPlane id="sid-cdcae759-2af7-4a6d-bd02-53f3352a731d" bpmnElement="sid-c0e745ff-361e-4afb-8c8d-2a1fc32b1424">
+      <bpmndi:BPMNShape id="sid-87F4C1D6-25E1-4A45-9DA7-AD945993D06F_gui" bpmnElement="sid-87F4C1D6-25E1-4A45-9DA7-AD945993D06F" isHorizontal="true">
+        <omgdc:Bounds x="83" y="10" width="933" height="310" />
+        <bpmndi:BPMNLabel labelStyle="sid-84cb49fd-2f7c-44fb-8950-83c3fa153d3b" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-57E4FE0D-18E4-478D-BC5D-B15164E93254_gui" bpmnElement="sid-57E4FE0D-18E4-478D-BC5D-B15164E93254" isHorizontal="true">
+        <omgdc:Bounds x="113" y="10" width="903" height="310" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0k4znrx_di" bpmnElement="TextAnnotation_0k4znrx">
+        <omgdc:Bounds x="490" y="33" width="121" height="55" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1ejkxk6_di" bpmnElement="Flow_1ejkxk6">
+        <omgdi:waypoint x="223" y="193" />
+        <omgdi:waypoint x="280" y="193" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sid-EE8A7BA0-5D66-4F8B-80E3-CC2751B3856A_gui" bpmnElement="sid-EE8A7BA0-5D66-4F8B-80E3-CC2751B3856A">
+        <omgdi:waypoint x="380" y="193" />
+        <omgdi:waypoint x="430" y="193" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="494" y="185" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="sid-57EB1F24-BD94-479A-BF1F-57F1EAA19C6C_gui" bpmnElement="sid-57EB1F24-BD94-479A-BF1F-57F1EAA19C6C">
+        <omgdi:waypoint x="530" y="193" />
+        <omgdi:waypoint x="570" y="193" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="820" y="185" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0e95c4x_di" bpmnElement="Flow_0e95c4x">
+        <omgdi:waypoint x="670" y="193" />
+        <omgdi:waypoint x="710" y="193" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1vw3m49_di" bpmnElement="Flow_1vw3m49">
+        <omgdi:waypoint x="810" y="193" />
+        <omgdi:waypoint x="901" y="193" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="StartEvent_0l6sgn0_di" bpmnElement="sid-D7F237E8-56D0-4283-A3CE-4F0EFE446138">
+        <omgdc:Bounds x="187" y="175" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="160" y="212" width="90" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-52EB1772-F36E-433E-8F5B-D5DFD26E6F26_gui" bpmnElement="sid-52EB1772-F36E-433E-8F5B-D5DFD26E6F26">
+        <omgdc:Bounds x="280" y="153" width="100" height="80" />
+        <bpmndi:BPMNLabel labelStyle="sid-84cb49fd-2f7c-44fb-8950-83c3fa153d3b">
+          <omgdc:Bounds x="247.5" y="155" width="84" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-E49425CF-8287-4798-B622-D2A7D78EF00B_gui" bpmnElement="sid-E49425CF-8287-4798-B622-D2A7D78EF00B">
+        <omgdc:Bounds x="430" y="153" width="100" height="80" />
+        <bpmndi:BPMNLabel labelStyle="sid-84cb49fd-2f7c-44fb-8950-83c3fa153d3b">
+          <omgdc:Bounds x="397.92857360839844" y="145" width="83.14285278320312" height="36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_0a3l6db_di" bpmnElement="DataStoreReference_0a3l6db">
+        <omgdc:Bounds x="455" y="98" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0xwuvv5_di" bpmnElement="sid-E433566C-2289-4BEB-A19C-1697048900D2">
+        <omgdc:Bounds x="901" y="175" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="884" y="214" width="74" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0pxqr9w_di" bpmnElement="Activity_0pxqr9w">
+        <omgdc:Bounds x="570" y="153" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1un46ub_di" bpmnElement="Activity_1un46ub">
+        <omgdc:Bounds x="710" y="153" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0p5b98b_di" bpmnElement="Association_0p5b98b">
+        <omgdi:waypoint x="500" y="98" />
+        <omgdi:waypoint x="508" y="88" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_1npr1cs" bpmnElement="Participant_0imgg8d" isHorizontal="true">
+        <omgdc:Bounds x="83" y="337" width="933" height="170" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_14s9bhg" bpmnElement="Lane_19933ua" isHorizontal="true">
+        <omgdc:Bounds x="113" y="337" width="903" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1bttl3b" bpmnElement="Activity_1x1bsex">
+        <omgdc:Bounds x="570" y="402" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="537.9285736083984" y="394" width="83.14285278320312" height="36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1uhvbcf" bpmnElement="Activity_0616s54">
+        <omgdc:Bounds x="710" y="402" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="677.9285736083984" y="394" width="83.14285278320312" height="36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0qlfbvh_di" bpmnElement="Flow_0qlfbvh">
+        <omgdi:waypoint x="620" y="233" />
+        <omgdi:waypoint x="620" y="402" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0fzri8b_di" bpmnElement="Flow_0fzri8b">
+        <omgdi:waypoint x="620" y="402" />
+        <omgdi:waypoint x="620" y="233" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0y4gclo_di" bpmnElement="Flow_0y4gclo">
+        <omgdi:waypoint x="760" y="402" />
+        <omgdi:waypoint x="760" y="233" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1q109gr_di" bpmnElement="Flow_1q109gr">
+        <omgdi:waypoint x="760" y="233" />
+        <omgdi:waypoint x="760" y="402" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="sid-e0502d32-f8d1-41cf-9c4a-cbb49fecf581">
+      <omgdc:Font name="Arial" size="11" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="sid-84cb49fd-2f7c-44fb-8950-83c3fa153d3b">
+      <omgdc:Font name="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" />
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</definitions>

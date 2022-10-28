@@ -22,19 +22,19 @@
     @livewireStyles
 </head>
 <body>
-    <x-header></x-header>
+{{--<x-header></x-header>--}}
 
-    @yield('content')
+@yield('content')
 
-    <script>
-        function addProjectTab() {
-            project_tabs = document.getElementById("dashboard-tabs");
-            project_tabs.innerHTML = project_tabs.innerHTML +
-                '<li class="mr-2"> <a href="#" class="inline-block text-gray-500 hover:text-gray-600 ' +
-                'hover:bg-gray-50 rounded-t-lg py-4 px-4 text-sm font-medium text-center active" aria-current="page">Project 2</a> </li>'
-        };
-    </script>
+{{--<script>--}}
+{{--    function addProjectTab() {--}}
+{{--        project_tabs = document.getElementById("dashboard-tabs");--}}
+{{--        project_tabs.innerHTML = project_tabs.innerHTML +--}}
+{{--            '<li class="mr-2"> <a href="#" class="inline-block text-gray-500 hover:text-gray-600 ' +--}}
+{{--            'hover:bg-gray-50 rounded-t-lg py-4 px-4 text-sm font-medium text-center active" aria-current="page">Project 2</a> </li>'--}}
+{{--    };--}}
+{{--</script>--}}
 
-    @livewireScripts
+@livewireScripts
 </body>
 </html>
