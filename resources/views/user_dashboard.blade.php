@@ -73,15 +73,7 @@
         m-1 border border-solid border-gray-500 rounded shadow">
 
         <!-- rstudio -->
-        <div style="height: 100%; width: 100%; position: relative;">
-            <button type='submit' class="fa fa-external-link-alt
-                    mt-1 mr-1
-                     text-2xl text-white opacity-50 hover:opacity-100"
-                    style="position: absolute; top: 3px; right: 5px; z-index: 2;"
-                    aria-hidden="true"
-                    onclick="window.open('/rstudio', 'rstudio', 'menubar=no');"></button>
-            <iframe class="shadow shadow-black w-full h-full" src="/rstudio"></iframe>
-        </div>
+        <livewire:r-studio />
 
     </div>
 

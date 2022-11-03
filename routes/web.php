@@ -15,15 +15,54 @@ use App\Http\Controllers\DataUpload;
 |
 */
 
-//Route::get('/', function () {
-//    return view('home');
-//});
+require __DIR__.'/auth.php';
+
+/*
+|--------------------------------------------------------------------------
+| Standard Views
+|--------------------------------------------------------------------------
+|
+| Standard Views include the landing page, user dashboard, and the RStudio and Jupyter IDEs.
+*/
+
+Route::get('/', function () {
+    return view('landing');
+});
+
+# User Dashboard
+Route::get('userdashboard', function () {
+    return view('user_dashboard');
+})->middleware(['auth'])->name('user_dashboard');
+
+# RStudio IDE
+Route::get('/rstudio', function() {
+//    $path = Request::root() . ':' . env('RSTUDIO_IDE_PORT');
+    $path = 'https://google.com';
+    return url($path);
+})->name('rstudio');
+
+/*
+|--------------------------------------------------------------------------
+| Controller Routes
+|--------------------------------------------------------------------------
+|
+| These routes provide functionality to things like initiating a new user
+| and uploading data.
+*/
+## Controllers
+Route::get("/test-controller-route", [DataUpload::class, 'upload']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+/*
+|--------------------------------------------------------------------------
+| Previous Routes
+|--------------------------------------------------------------------------
+|
+| Below are the routes are from legacy versions of EASL.
+*/
 
 Route::get('/projects', function () {
     return view('project-dashboard');
@@ -50,7 +89,7 @@ Route::redirect('/notebook', Request::root() . ':' . env('JUPYTER_TF_GPU_HTTP_PO
 
 Route::redirect("/orthanc-entry", Request::root() . ':' . env('ORTHANC_HTTP_PORT'))->middleware(['auth'])->name('/orthanc-entry');
 
-Route::redirect('/rstudio', Request::root() . ':' . env('RSTUDIO_IDE_PORT'))->middleware(['auth'])->name('/rstudio');
+//Route::redirect('/rstudio', env('APP_URL') . ':' . env('RSTUDIO_IDE_PORT'))->middleware(['auth'])->name('/rstudio');
 
 Route::redirect('/shiny-test-app', Request::root() . ':' . '3838/test-app')->middleware(['auth'])->name('/shiny-test-app');
 
@@ -75,17 +114,4 @@ Route::get("/user-study", function () {
 Route::get('/send/email', [\App\Http\Controllers\OrderShipment::class, 'mail']);
 
 
-#######
-# Landing Page
-Route::get('/', function () {
-    return view('landing');
-});
 
-# User Dashboard
-Route::get('userdashboard', function () {
-    return view('user_dashboard');
-})->middleware(['auth'])->name('user_dashboard');
-
-
-## Controllers
-Route::get("/test-controller-route", [DataUpload::class, 'upload']);
