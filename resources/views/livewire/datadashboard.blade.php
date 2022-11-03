@@ -24,14 +24,18 @@
                     </div>
                 </td>
                 <td>
-                    <button wire:click="view_dicom_dataset"
-                        class="border border-solid
+                    <div>
+                        <button wire:click="increment"
+                                class="border border-solid
                     border-gray-500 rounded shadow
                     m-1 pl-1 pr-1
                     hover:bg-gray-200 hover:text-gray-800">
-                        {{ $test_response }}
-                    </button>
-
+                            view
+                        </button>
+                        <div>
+                            {{ $count }}
+                        </div>
+                    </div>
                 </td>
             </tr>
             <tr>
