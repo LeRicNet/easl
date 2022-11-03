@@ -2,7 +2,12 @@
 @section('content')
 
     <div class="border border-solid">
-        Project Data
+        <div>
+            Project Data {{ $count }}
+            <div style="text-align: center">
+                <button type='submit' wire:click.prevent="increment">+</button>
+            </div>
+        </div>
         <table class="table-auto text-center align-content-center ml-1">
             <tr>
                 <th class="border border-gray-500">Dataset Name</th>
@@ -24,17 +29,19 @@
                     </div>
                 </td>
                 <td>
-                    <div>
-                        <button wire:click="increment"
-                                class="border border-solid
-                    border-gray-500 rounded shadow
-                    m-1 pl-1 pr-1
-                    hover:bg-gray-200 hover:text-gray-800">
-                            view
-                        </button>
-                        <div>
-                            {{ $count }}
-                        </div>
+                    <div style="text-align: center">
+                        <button wire:click="increment">+</button>
+                        <h1>{{ $count }}</h1>
+{{--                        <button wire:click="view"--}}
+{{--                                class="border border-solid--}}
+{{--                    border-gray-500 rounded shadow--}}
+{{--                    m-1 pl-1 pr-1--}}
+{{--                    hover:bg-gray-200 hover:text-gray-800">--}}
+{{--                            view--}}
+{{--                        </button>--}}
+{{--                        <h1>--}}
+{{--                            {{ $count }}--}}
+{{--                        </h1>--}}
                     </div>
                 </td>
             </tr>

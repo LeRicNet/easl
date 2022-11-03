@@ -39,10 +39,10 @@
         </div>
     </div>
 
-    <div class="grid grid-rows-2 text-4xl text-center text-gray-400" style="padding-top: 100px;">
-        <p>Learn More . . .</p>
-        <i class="fa fa-solid fa-arrow-down text-gray-500 text-5xl mt-2"></i>
-    </div>
+{{--    <div class="grid grid-rows-2 text-4xl text-center text-gray-400" style="padding-top: 100px;">--}}
+{{--        <p>Learn More . . .</p>--}}
+{{--        <i class="fa fa-solid fa-arrow-down text-gray-500 text-5xl mt-2"></i>--}}
+{{--    </div>--}}
 {{--         style="display: block; margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto;"/>--}}
 </div>
 

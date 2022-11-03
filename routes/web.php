@@ -56,6 +56,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::redirect('/flask', rtrim(Request::root(), "/") . ":5000/abc/cde");
+
 /*
 |--------------------------------------------------------------------------
 | Previous Routes

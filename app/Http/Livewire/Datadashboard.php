@@ -21,6 +21,7 @@ class Datadashboard extends Component
     public function increment()
     {
         $this->count++;
+        echo '<script>console.log("increment function called")</script>';
     }
 
     public function view()

@@ -107,6 +107,18 @@ services:
                     devices:
                         - capabilities: [gpu]
 
+    flask:
+        image: easl/flask:1.0
+        ports:
+            - 5000:5000
+        volumes:
+            - ${FLASK_BACKEND}:/root/
+        links:
+            - orthanc
+        networks:
+            - backend
+
+
     rstudio:
         image: 'xcxlab/rstudio' # Dockerfile located in xcxlab/dockerfiles/rstudio
         container_name: 'xcxlab_rstudio'
