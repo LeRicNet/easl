@@ -18,9 +18,11 @@ class TestComponent extends Component
     public $test_response = 'no test performed';
     public $visibility = 'unknown';
     public $files;
+    public $file_path = '';
     public $dicoms = [];
     public $dicomDataId = 'temp_data';
     public $data_dirs = [];
+    public $test_file = '';
 
     public function save()
     {
@@ -36,8 +38,6 @@ class TestComponent extends Component
         }
 
         $this->update_table($dicomDataId);
-//        $this->files = implode(',', Storage::files($path));
-//
 
     }
 
@@ -45,6 +45,75 @@ class TestComponent extends Component
     {
         array_push($this->data_dirs, $datasetId);
 //        $this->data_dirs = Storage::directories($path);
+    }
+
+    public function viewDataset($data_dir)
+    {
+        $path = 'public/active-users/dicom_tests/' . $data_dir;
+        $path = Storage::path($path);
+        $file_array = Storage::allFiles($path);
+        $this->files = count($file_array);
+        $this->test_file = Storage::path($file_array[1]);
+
+
+        $content_type = mime_content_type($this->test_file);
+
+        $headers = array(
+            "Content-Type: $content_type", // or whatever you want
+        );
+
+        $filesize = filesize($this->test_file);
+        $stream = fopen($this->test_file, 'r');
+
+        $curl_opts = array(
+            CURLOPT_URL => 'http://140.226.123.129:8042/instances',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_PUT => true,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_INFILE => $stream,
+            CURLOPT_INFILESIZE => $filesize,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1
+        );
+
+        $curl = curl_init();
+        curl_setopt_array($curl, $curl_opts);
+
+        $response = curl_exec($curl);
+
+        fclose($stream);
+
+        $this->test_file = $response;
+
+//
+//        $ch = curl_init();
+//        curl_setopt($ch, CURLOPT_URL, 'http://140.226.123.129:8042/instances');
+//        curl_setopt($ch, CURLOPT_POST, 1);
+//        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->test_file);
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+//        curl_setopt($ch, CURLOPT_HTTPHEADER,     array('Content-Type: application/binary'));
+//
+//        curl_exec($ch);
+//
+//        $info = curl_getinfo($ch);
+//
+//        $this->test_file = $info['request_header'];
+
+//        // POST files to Orthanc
+//        foreach ($file_array as $file) {
+//            $this->test_response = 'calling cURL on ' . $file;
+//            $ch = curl_init();
+//            curl_setopt($ch, CURLOPT_URL, 'http://140.226.123.129:8042/instances');
+//            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+//            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array('data-binary'=>'@' . $file)));
+//            $output = curl_exec($ch);
+//            curl_close($ch);
+//        }
+////        $this->files = Storage::get($path);
+        $this->test_response = 'called viewDataset(data_dir = ' . $data_dir . ')';
+        $this->file_path = $path;
+
     }
 
     public $count = 0;
