@@ -2,21 +2,55 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Console\Input\Input;
 use Symfony\Component\Process\Process;
 use Livewire\WithFileUploads;
 
 class TestComponent extends Component
 {
 
-    public $count = 0;
-    public $test_response = 'no test performed';
-    public $flask_path = '#';
-
     use WithFileUploads;
 
+    public $photo;
+    public $test_response = 'no test performed';
+    public $visibility = 'unknown';
+    public $files;
     public $dicoms = [];
+    public $dicomDataId = 'temp_data';
+    public $data_dirs = [];
+
+    public function save()
+    {
+
+        $dicomDataId = $this->dicomDataId;
+        $path = 'public/active-users/dicom_tests/' . $dicomDataId;
+        $path = Storage::path($path);
+
+        $this->test_response = 'file saved at ' . $path;
+
+        foreach ($this->dicoms as $dicom) {
+            Storage::put($path, $dicom);
+        }
+
+        $this->update_table($dicomDataId);
+//        $this->files = implode(',', Storage::files($path));
+//
+
+    }
+
+    public function update_table($datasetId)
+    {
+        array_push($this->data_dirs, $datasetId);
+//        $this->data_dirs = Storage::directories($path);
+    }
+
+    public $count = 0;
+    public $flask_path = '#';
+
+
 
     public function increment()
     {
@@ -46,7 +80,10 @@ class TestComponent extends Component
         $dcm_zip->open($zip_name, \ZipArchive::CREATE);
         foreach ($this->dicoms as $dicom) {
             $dicom->store('dicoms');
-            $dcm_zip->addFile($dicom, $dicom);
+//            if (Input::file($dicom))
+//            {
+//                $this->test_response='passed test';
+//            }
             // This will store the dicoms in a non-public way.
             // However, it does not currently write to a permanent disk.
         }
@@ -58,6 +95,8 @@ class TestComponent extends Component
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array('data-binary'=>'@' . $zip_name)));
         $output = curl_exec($ch);
         curl_close($ch);
+
+        $this->test_response = Route::resource('orthanc', 'OrthancController', array('only' => array('index')));
 
         // TODO: encode URL as a variable
 //        curl_setopt($ch, CURLOPT_URL, 'http://140.226.123.129:8042/patients/0d413cc2-5060ceb7-fd4329e9-322c2e51-e75f9e51');
