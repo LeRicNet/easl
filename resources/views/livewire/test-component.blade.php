@@ -1,5 +1,5 @@
 <div>
-    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+{{--     To attain knowledge, add things every day; To attain wisdom, subtract things every day.--}}
 
     <div class="text text-white bg-gray-900 pl-2 pt-1 pb-1">DICOM Database</div>
 

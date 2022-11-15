@@ -55,7 +55,7 @@
          class="content-center align-content-center
         m-1 border border-solid border-gray-500 rounded shadow">
 
-        <!-- rstudio -->
+        <!-- BPMN model -->
         <div style="height: 100%; width: 100%; position: relative;">
             <button type='submit' class="fa fa-external-link-alt
                     mt-1 mr-1
@@ -72,7 +72,7 @@
          class="content-center align-content-center
         m-1 border border-solid border-gray-500 rounded shadow">
 
-        <!-- rstudio -->
+        <!-- RStudio -->
         <livewire:r-studio />
 
     </div>
@@ -81,8 +81,8 @@
     class="content-center align-content-center
         m-1 border border-solid border-gray-500 rounded shadow">
 
-        <!-- Data dashboard -->
-        <livewire:datadashboard />
+        <!-- Data Dashboard -->
+{{--        <livewire:test-component />--}}
 
     </div>
 
@@ -90,8 +90,8 @@
          class="content-center align-content-center
         m-1 border border-solid border-gray-500 rounded shadow">
 
-        <!-- Data dashboard -->
-        <livewire:test-component />
+        <!-- DICOM Management Dashboard -->
+        <livewire:dicom-data />
 
     </div>
 
