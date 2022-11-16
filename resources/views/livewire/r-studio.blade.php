@@ -26,10 +26,10 @@
 
         </div>
         <div class="pl-2">
-            Shiny Dashboards
+            Shiny Apps
         </div>
         <div class="pl-2">
-            Projects
+            RStudio Projects
         </div>
     </div>
 {{--    <iframe class="shadow shadow-black w-full h-full" src={{ $path }}></iframe>--}}
