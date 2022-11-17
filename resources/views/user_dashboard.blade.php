@@ -44,15 +44,16 @@
         m-1 border border-solid border-gray-500 rounded shadow">
 
         <!-- BPMN model -->
-        <div style="height: 100%; width: 100%; position: relative;">
-            <button type='submit' class="fa fa-external-link-alt
-                    mt-1 mr-1
-                     text-2xl text-gray-300 opacity-50 hover:text-gray-600"
-                    style="position: absolute; top: 3px; right: 5px; z-index: 2;"
-                    aria-hidden="true"
-                    onclick="window.open('/bpmn', 'bpmn', 'menubar=no');"></button>
-            <iframe class="shadow shadow-black w-full h-full" src="/bpmn"></iframe>
-        </div>
+        <livewire:project-dashboard />
+{{--        <div style="height: 100%; width: 100%; position: relative;">--}}
+{{--            <button type='submit' class="fa fa-external-link-alt--}}
+{{--                    mt-1 mr-1--}}
+{{--                     text-2xl text-gray-300 opacity-50 hover:text-gray-600"--}}
+{{--                    style="position: absolute; top: 3px; right: 5px; z-index: 2;"--}}
+{{--                    aria-hidden="true"--}}
+{{--                    onclick="window.open('/bpmn', 'bpmn', 'menubar=no');"></button>--}}
+{{--            <iframe class="shadow shadow-black w-full h-full" src="/bpmn"></iframe>--}}
+{{--        </div>--}}
 
     </div>
 

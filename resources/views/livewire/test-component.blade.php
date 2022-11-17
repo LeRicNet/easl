@@ -57,15 +57,15 @@
             </table>
         </div>
 
-        <div>
-            {{ $test_response }}
-            <br>
-            Path: {{ $file_path }}
-            <br>
-            Files in Dataset: {{ $files }}
-            <br>
-            File #1: {{ $test_file }}
-        </div>
+{{--        <div>--}}
+{{--            {{ $test_response }}--}}
+{{--            <br>--}}
+{{--            Path: {{ $file_path }}--}}
+{{--            <br>--}}
+{{--            Files in Dataset: {{ $files }}--}}
+{{--            <br>--}}
+{{--            File #1: {{ $test_file }}--}}
+{{--        </div>--}}
 
 
     </div>
