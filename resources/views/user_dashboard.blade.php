@@ -45,6 +45,7 @@
 
         <!-- BPMN model -->
         <livewire:project-dashboard />
+{{--        <livewire:create-project />--}}
 {{--        <div style="height: 100%; width: 100%; position: relative;">--}}
 {{--            <button type='submit' class="fa fa-external-link-alt--}}
 {{--                    mt-1 mr-1--}}
