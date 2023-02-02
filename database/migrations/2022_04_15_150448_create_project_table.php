@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('data_table_id');
+            $table->longText('project_abstract');
 //            $table->string('model_table_id');
 //            $table->string('artifacts_table_id');
 //            $table->string('experiments_table_id');
