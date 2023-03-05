@@ -34,28 +34,52 @@ class ProjectDashboard extends Component
         'project.data_table_id' => 'optional',
     ];
 
+    private function refreshTable()
+    {
+        DB::table('project')
+            ->where('id', $this->working_project_id)
+            ->update(
+                [
+                    'updated_at' => date('Y-m-d H:i:s'),
+                    'title' => $this->working_project_title,
+                    'project_abstract' => $this->working_project_abstract
+                ]
+            );
+    }
+
     public function mount()
     {
         $this->project = new Project;
+        $this->refreshTable();
     }
 
-    public function launch()
-    {
-//        $this->active_project = DB::select('select title from project where id = 1')-value('title');
-        $this->test_var = 'launchProject() called';
-    }
     public function attach($id)
     {
         $select_project = DB::table('project')->find($id);
+        DB::table('project')
+            ->update(
+                [
+                    'is_active' => null
+                ]
+            );
+
         $this->working_project_id = $id;
         $this->test_var = $select_project->title;
         $this->working_project_title = $select_project->title;
+        $this->recorded_project_title = $select_project->title;
         $this->project_created_at = $select_project->created_at;
         $this->project_updated_at = $select_project->updated_at;
         $this->working_project_abstract = $select_project->project_abstract;
 
         $this->is_project_loaded = True;
-            // DB::select('select title from project where id = 1').value('title');
+        DB::table('project')
+            ->where('id', $this->working_project_id)
+            ->update(
+                [
+                    'is_active' => 1
+                ]
+            );
+        $this->emit('projectAttached');
     }
 
     private function resetDB()

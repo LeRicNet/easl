@@ -29,13 +29,18 @@
     <img src="./easl-logo.svg" width="800" />
     <div class="grid grid-cols-1">
         <div class="mt-16 mb-16 text-5xl text-bold text-center text-blue-600">Welcome to EASL</div>
-        <div class="grid grid-cols-2 align-content-center">
+{{--        <div class="grid grid-cols-2 align-content-center">--}}
+{{--            <button type="submit" class="h-24 w-50 mr-2 text-4xl text-gray-100 transition-colors--}}
+{{--            duration-150 bg-gray-700 rounded-lg focus:shadow-outline--}}
+{{--            hover:bg-gray-800 opacity-50 hover:opacity-100" onclick="window.location.href='{{ url('login') }}';">Login</button>--}}
+{{--            <button type="submit" class="h-24 w-50 ml-2 text-4xl text-indigo-700 transition-colors--}}
+{{--            duration-150 border border-indigo-500 rounded-lg focus:shadow-outline--}}
+{{--            hover:bg-indigo-500 hover:text-indigo-100" onclick="window.location.href='{{ url('register') }}';">Sign Up</button>--}}
+{{--        </div>--}}
+        <div class="grid grid-cols-1 align-content-center">
             <button type="submit" class="h-24 w-50 mr-2 text-4xl text-gray-100 transition-colors
             duration-150 bg-gray-700 rounded-lg focus:shadow-outline
             hover:bg-gray-800 opacity-50 hover:opacity-100" onclick="window.location.href='{{ url('login') }}';">Login</button>
-            <button type="submit" class="h-24 w-50 ml-2 text-4xl text-indigo-700 transition-colors
-            duration-150 border border-indigo-500 rounded-lg focus:shadow-outline
-            hover:bg-indigo-500 hover:text-indigo-100" onclick="window.location.href='{{ url('register') }}';">Sign Up</button>
         </div>
     </div>
 

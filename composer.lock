@@ -4,8 +4,73 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1b16718d3bf11a7c376ce84e7c0b0cc",
+    "content-hash": "e06b10f6637af35c53ace79d1b097e95",
     "packages": [
+        {
+            "name": "alfrasc/laravel-matomo-tracker",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alfrasc/laravel-matomo-tracker.git",
+                "reference": "dd9e82ceb6388ea5f5b80eba28d1d99a17c68305"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alfrasc/laravel-matomo-tracker/zipball/dd9e82ceb6388ea5f5b80eba28d1d99a17c68305",
+                "reference": "dd9e82ceb6388ea5f5b80eba28d1d99a17c68305",
+                "shasum": ""
+            },
+            "require": {
+                "matomo/matomo-php-tracker": "^3.0.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.1",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~7.0",
+                "sempro/phpunit-pretty-print": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Alfrasc\\MatomoTracker\\LaravelMatomoTrackerServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelMatomoTracker": "Alfrasc\\MatomoTracker\\Facades\\LaravelMatomoTracker"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Alfrasc\\MatomoTracker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Schmidhuber",
+                    "email": "alexander.schmidhuber@gmail.com",
+                    "homepage": "https://schmidhuber.co.at"
+                }
+            ],
+            "description": "A Laravel facade/wrapper for the matomo/matomo-php-tracker for server side Matomo tracking.",
+            "homepage": "https://github.com/alfrasc/matomotracker",
+            "keywords": [
+                "Matomo PHP Tracker",
+                "Piwik PHP Tracker",
+                "laravel",
+                "piwik",
+                "server side tracking"
+            ],
+            "support": {
+                "issues": "https://github.com/alfrasc/laravel-matomo-tracker/issues",
+                "source": "https://github.com/alfrasc/laravel-matomo-tracker/tree/v1.0.0"
+            },
+            "time": "2021-11-18T11:36:18+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.9.3",
@@ -1667,6 +1732,62 @@
                 }
             ],
             "time": "2022-08-08T13:52:53+00:00"
+        },
+        {
+            "name": "matomo/matomo-php-tracker",
+            "version": "3.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matomo-org/matomo-php-tracker.git",
+                "reference": "78932f61692b18c6b5de923dbc3880ad3380e328"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matomo-org/matomo-php-tracker/zipball/78932f61692b18c6b5de923dbc3880ad3380e328",
+                "reference": "78932f61692b18c6b5de923dbc3880ad3380e328",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.3"
+            },
+            "suggest": {
+                "ext-curl": "Using this extension to issue the HTTPS request to Matomo"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "."
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "The Matomo Team",
+                    "email": "hello@matomo.org",
+                    "homepage": "https://matomo.org/team/"
+                }
+            ],
+            "description": "PHP Client for Matomo Analytics Tracking API",
+            "homepage": "https://matomo.org",
+            "keywords": [
+                "analytics",
+                "matomo",
+                "piwik",
+                "tracker"
+            ],
+            "support": {
+                "forum": "https://forum.matomo.org/",
+                "issues": "https://github.com/matomo-org/matomo-php-tracker/issues",
+                "source": "https://github.com/matomo-org/matomo-php-tracker"
+            },
+            "time": "2023-01-18T14:28:44+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7985,7 +8106,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^8.0.2",
-        "ext-curl": "*"
+        "ext-curl": "*",
+        "ext-zip": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"

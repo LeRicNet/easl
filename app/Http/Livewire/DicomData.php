@@ -35,7 +35,7 @@ class DicomData extends Component
             Storage::put($path, $dicom);
         }
 
-        $this->update_table($dicomDataId);
+//        $this->update_table($dicomDataId);
 
     }
 
@@ -192,6 +192,12 @@ class DicomData extends Component
 
     public function render()
     {
+
+//        $path = 'public/active-users/dicom_tests/';
+//        $path = scandir(Storage::path($path));
+//        $path = array_diff($path, array('..', '.'));
+//        $this->data_dirs = $path;
+
         return view('livewire.test-component');
     }
 }

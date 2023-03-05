@@ -100,7 +100,7 @@
 
         @if($working_project_title != $recorded_project_title)
             <button type="submit" wire:click="save">
-                <i class="fa fa-1x fa-save text-gray-600"></i>
+                <i class="fa fa-1x fa-save text-red-600"></i>
             </button>
         @else
             <button type="submit">

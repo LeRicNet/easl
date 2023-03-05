@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\DataUpload;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,7 @@ Route::get('/', function () {
 # User Dashboard
 Route::get('userdashboard', function () {
     return view('user_dashboard');
-})->middleware(['auth'])->name('user_dashboard');
+})->middleware(['auth'])->name('userdashboard');
 
 # RStudio IDE
 Route::get('/rstudio', function() {
@@ -95,7 +96,8 @@ Route::redirect("/orthanc-entry", Request::root() . ':' . env('ORTHANC_HTTP_PORT
 
 Route::redirect('/shiny-test-app', Request::root() . ':' . '3838/test-app')->middleware(['auth'])->name('/shiny-test-app');
 
-Route::redirect('/bvis', Request::root() . ':' . '3838/bvis')->middleware(['auth'])->name('/bvis');
+//Route::redirect('/bvis', Request::root() . ':' . '3838/bvis')->middleware(['auth'])->name('/bvis');
+Route::redirect('/bvis', Request::root() . ':' . '3838/bvis');
 
 //Route::redirect('/lab', Request::root() . ':8888/?=' . env('password') . '/lab')->middleware(['auth'])->name('/lab');
 Route::redirect('/lab', Request::root() . ':8888/lab')->middleware(['auth'])->name('/lab');
@@ -115,5 +117,6 @@ Route::get("/user-study", function () {
 // Emails
 Route::get('/send/email', [\App\Http\Controllers\OrderShipment::class, 'mail']);
 
-
-
+// Monitoring
+Route::redirect('/analytics', Request::root() . ':' . '8081')->name('analytics');
+Route::redirect('/GeneJockey', Request::root() . ':' . '3838/GeneJockey')->middleware(['auth'])->name('GeneJockey');

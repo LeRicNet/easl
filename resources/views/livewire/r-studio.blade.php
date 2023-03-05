@@ -26,11 +26,40 @@
 
         </div>
         <div class="pl-2">
-            Shiny Apps
+
+            <div class="text text-lg font-bold">
+                Shiny Apps
+            </div>
+            <div class="grid grid-flow-row grid-flow-col">
+                @foreach($working_directory as $dir)
+                    <button onclick="window.open('{{ $dir }}', '{{ $dir }}', 'menubar=no');"
+                            class="p-4 border border-solid rounded-lg
+                            bg-blue-300 hover:bg-blue-200
+                        text-center">
+                        {{ $dir }}</button>
+                @endforeach
+            </div>
+
         </div>
-        <div class="pl-2">
-            RStudio Projects
-        </div>
+{{--        <div class="pl-2">--}}
+{{--            RStudio Projects<br>--}}
+
+
+{{--        </div>--}}
+
+{{--        <div>--}}
+{{--            Active EASL Project: {{ $active_project }}--}}
+{{--        </div>--}}
+
+{{--        <div>--}}
+{{--            Current Working Directory: {{ $temp_path }}--}}
+{{--        </div>--}}
+
+{{--        <div>--}}
+{{--            Current Available Directories:<br>--}}
+
+{{--        </div>--}}
+
     </div>
 {{--    <iframe class="shadow shadow-black w-full h-full" src={{ $path }}></iframe>--}}
 </div>

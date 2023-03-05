@@ -56,6 +56,12 @@ return [
             'throw' => false,
         ],
 
+        'private' => [
+            'driver' => 'local',
+            'root' => env('RSTUDIO_SHINY_APP_DIRECTORY'),
+
+        ]
+
     ],
 
     /*
@@ -71,6 +77,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('shiny') => base_path(env('RSTUDIO_SHINY_APP_DIRECTORY')),
     ],
 
 ];
