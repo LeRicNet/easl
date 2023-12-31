@@ -28,12 +28,14 @@
                     type="submit">Activate</button>
         </div>
 
+        <div>Test</div>
+
         <div class="pt-1 pl-2 border border-top border-solid">
             <table class="text-center table table-default">
 
                 <thead>
                 <tr>
-                    <th>Dataset</th>
+                    <th>Dataset!</th>
                     <th>Attach</th>
                     <th>View</th>
                 </tr>
@@ -71,3 +73,40 @@
     </div>
 
 </div>
+
+
+<!-- JavaScript to identify the image in the OHIF image viewer -->
+
+
+<script>
+    function getDICOM() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://140.226.123.129:3000', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send(null);
+    };
+    // function setUploadEvent(typeComponet){
+    //     var eventType = "";
+    //     var iframe = document.getElementById("iframeId");
+    //     try{
+    //         /* for Mozilla / Opera9 */
+    //         if (/(?!.*?compatible|.*?webkit)^mozilla|opera/i.test(navigator.userAgent)) {
+    //             eventType = "onload";
+    //         }else{
+    //             /* IE  */
+    //             eventType = "onreadystatechange";
+    //         }
+    //
+    //         iframe[eventType] = function(){
+    //             var doc = iframe.contentDocument || iframe.contentWindow.document;
+    //             var response = doc.body.innerHTML; /* or what ever content you are looking for */
+    //         }
+    //     }
+    //     catch(e){
+    //         alert("Error loading content")}
+    // }
+</script>

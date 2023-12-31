@@ -7,7 +7,8 @@ CMD ['bash']
 
 #CMD ["bash", "-c", "pip install jupyterlab"]
 RUN pip install jupyterlab \
-    scikit-learn
+    scikit-learn \
+    pandas
 
 CMD ["bash", "-c", "source /etc/bash.bashrc && jupyter lab \
 --notebook-dir=/tf \

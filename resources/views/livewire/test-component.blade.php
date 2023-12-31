@@ -49,7 +49,8 @@
                             <button class="text text-lg text-gray-300
                              fa fa-eye hover:text-gray-600"
                             wire:click="viewDataset('{{ $data_dir }}')"
-                            onclick="window.open('http://140.226.123.129:3000', '_blank', 'modal=yes')" ></button>
+                                    onclick="window.open('/ohif-viewer', '_blank', 'modal=yes')" ></button>
+{{--                            onclick="window.open('http://140.226.123.129:3000', '_blank', 'modal=yes')" ></button>--}}
                         </td>
                     </tr>
                 @endforeach
@@ -70,4 +71,40 @@
 
     </div>
 
+    <button class="border border-solid border-black"
+    onclick="getDICOM()">Test</button>
+
 </div>
+
+<script>
+    function getDICOM() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://140.226.123.129:3000/viewer', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send(null);
+    };
+    // function setUploadEvent(typeComponet){
+    //     var eventType = "";
+    //     var iframe = document.getElementById("iframeId");
+    //     try{
+    //         /* for Mozilla / Opera9 */
+    //         if (/(?!.*?compatible|.*?webkit)^mozilla|opera/i.test(navigator.userAgent)) {
+    //             eventType = "onload";
+    //         }else{
+    //             /* IE  */
+    //             eventType = "onreadystatechange";
+    //         }
+    //
+    //         iframe[eventType] = function(){
+    //             var doc = iframe.contentDocument || iframe.contentWindow.document;
+    //             var response = doc.body.innerHTML; /* or what ever content you are looking for */
+    //         }
+    //     }
+    //     catch(e){
+    //         alert("Error loading content")}
+    // }
+</script>

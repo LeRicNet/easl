@@ -17,9 +17,14 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('user_id');
-            $table->string('study_id');
+            $table->string('study_id')->nullable();
             $table->string('image')->nullable();
             $table->string('slug')->unique();
+            $table->string('path');
+            $table->string('id');
+            $table->string('parent_patient');
+            $table->string('parent_series');
+            $table->string('status');
         });
     }
 

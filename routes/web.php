@@ -5,6 +5,21 @@ use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\DataUpload;
 use Illuminate\Support\Facades\Redirect;
 
+use App\Http\Controllers\DicomController;
+use App\Http\Controllers\DicomInfoAjaxController;
+use App\Http\Controllers\OrderRequestsController;
+use App\Http\Controllers\FlaskController;
+# Flask API
+use App\Http\Controllers\Flask\BarchartController;
+use App\Http\Controllers\Flask\RadarchartController;
+use App\Http\Controllers\Flask\ScatterplotController;
+use App\Http\Controllers\Flask\BoxplotController;
+use App\Http\Controllers\Flask\GptController;
+
+use App\Http\Controllers\Dicom\PatientViewController;
+
+use App\Http\Controllers\PatientImageTableController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +73,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::redirect('/flask', rtrim(Request::root(), "/") . ":5000/abc/cde");
+
+Route::get('/ohif-viewer', function () {
+    return view('ohif-viewer-frame');
+})->middleware(['auth'])->name('ohif-viewer');
 
 /*
 |--------------------------------------------------------------------------
@@ -120,3 +139,60 @@ Route::get('/send/email', [\App\Http\Controllers\OrderShipment::class, 'mail']);
 // Monitoring
 Route::redirect('/analytics', Request::root() . ':' . '8081')->name('analytics');
 Route::redirect('/GeneJockey', Request::root() . ':' . '3838/GeneJockey')->middleware(['auth'])->name('GeneJockey');
+
+
+// SID2301
+Route::get('/sid2301', function() {
+    return view('sid2301.index');
+});
+
+// ATPC DB; Test for DICOM handling
+Route::get("/atpc", function() {
+    return view('atpcdb');
+})->name('atpc');
+//Route::get('/dcm.show', [DicomController::class, 'show'])->name('dcm.show');
+Route::resource('ajaxdicominfo', DicomInfoAjaxController::class);
+
+// Design B
+Route::get("/design-b", function() {
+    return view('sid2301.design-b');
+})->middleware(['auth'])->name('design-b');
+
+// Design C
+Route::get("/design-c", function() {
+    return view('sid2301.design-c-v2');
+})->middleware(['auth'])->name('design-c');
+
+// Design D (GPT)
+Route::get("/design-d", function() {
+    return view('sid2301.design-d-v2');
+})->middleware(['auth'])->name('design-d');
+
+// Demo EHR A
+Route::get("/demo-ehr", function() {
+    return view('sid2301.demoehr');
+})->middleware(['auth'])->name('demo-ehr');
+
+// SID2302
+Route::get('/sid2302', function() {
+    return view('sid2302.interface');
+});
+
+Route::redirect("/flask", Request::root() . ':' . ':5000/predict_diagnosis_radar/c921488f-cd651a4e-88483aaa-01683063-6338d780');
+
+Route::resource('order-request-data', OrderRequestsController::class);
+
+Route::resources([
+    "dicoms" => DicomInfoAjaxController::class,
+    "patientview" => PatientViewController::class,
+    "flask" =>  FlaskController::class,
+    "flask/barchart" => BarchartController::class,
+    "flask/radarchart" => RadarchartController::class,
+    "flask/scatterplot" => ScatterplotController::class,
+    "flask/boxplot" => BoxplotController::class,
+    "flask/gpt" => GptController::class
+]);
+
+Route::get('dicoms/show_series/{patient_name}', [DicomInfoAjaxController::class, 'show_series']);
+
+Route::resource('patient-image-table', PatientImageTableController::class);

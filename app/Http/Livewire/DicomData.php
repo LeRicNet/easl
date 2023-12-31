@@ -35,7 +35,7 @@ class DicomData extends Component
             Storage::put($path, $dicom);
         }
 
-//        $this->update_table($dicomDataId);
+        $this->update_table($dicomDataId);
 
     }
 
@@ -116,7 +116,6 @@ class DicomData extends Component
 
     public $count = 0;
     public $flask_path = '#';
-
 
 
     public function increment()
