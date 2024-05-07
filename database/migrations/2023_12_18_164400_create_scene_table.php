@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dicom_data', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->integer('user_id');
-            $table->string('study_id');
-            $table->string('image')->nullable();
-            $table->string('slug')->unique();
+        Schema::create('scene', function (Blueprint $table) {
+            $table->string('sessionID');
+            $table->string('scene');
+            $table->dateTime('completed');
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dicom_data');
+        Schema::dropIfExists('scene');
     }
 };

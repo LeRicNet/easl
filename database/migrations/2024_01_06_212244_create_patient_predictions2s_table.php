@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('project', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('title');
-            $table->string('data_table_id');
-//            $table->string('model_table_id');
-//            $table->string('artifacts_table_id');
-//            $table->string('experiments_table_id');
+        Schema::create('patient_predictions2', function (Blueprint $table) {
+            $table->string('patient');
+            $table->string('feature');
+            $table->float('value', $precision=4, $scale=1);
         });
     }
 
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project');
+        Schema::dropIfExists('patient_predictions2');
     }
 };
