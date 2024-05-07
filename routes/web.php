@@ -191,6 +191,10 @@ Route::get('/sid2302/ehr', function() {
     return view('sid2302.ehr');
 });
 
+Route::get('/sid2401', function() {
+    return view('sid2401.index');
+});
+
 Route::redirect("/flask", Request::root() . ':' . ':5000/predict_diagnosis_radar/c921488f-cd651a4e-88483aaa-01683063-6338d780');
 
 Route::resource('order-request-data', OrderRequestsController::class);
