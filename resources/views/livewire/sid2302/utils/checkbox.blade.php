@@ -21,8 +21,8 @@
                      'ring-pink-500' => $highlight
                 ])>
         <label for="location-feature-suprasellar"
-               data-tooltip-target="tooltip-correction"
-               data-tooltip-trigger="hover"
+{{--               data-tooltip-target="tooltip-correction"--}}
+{{--               data-tooltip-trigger="hover"--}}
                class="block font-medium leading-6 text-gray-900 mr-2 w-full">
             @if($autocomplete)
                 <div class="flex items-center border border-gray-500">
@@ -34,7 +34,9 @@
                             <livewire:sid2302.utils.barchart
                                     :divKey="$divKey"
                                     :featureValue="$featureValue"
-                                    :featureDBKey="$featureDBKey" />
+                                    :featureDBKey="$featureDBKey"
+                                    :target_patient="$target_patient"
+                            />
                         </div>
                     </div>
                 </div>
@@ -71,10 +73,10 @@
         'featureGroup' => $featureGroup
     ])
 
-    <div id="tooltip-correction" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2
-    transition-opacity duration-300 shadow-sm tooltip">
-        Tooltip content
-        <div class="tooltip-arrow" data-popper-arrow></div>
-    </div>
+{{--    <div id="tooltip-correction" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2--}}
+{{--    transition-opacity duration-300 shadow-sm tooltip">--}}
+{{--        Tooltip content--}}
+{{--        <div class="tooltip-arrow" data-popper-arrow></div>--}}
+{{--    </div>--}}
 
 </div>

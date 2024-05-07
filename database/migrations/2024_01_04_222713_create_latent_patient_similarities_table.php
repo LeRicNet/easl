@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('samples', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('primary_id')->unique();
-            $table->string('alternate_id')->nullable();
-            $table->string('metadata_accession')->nullable();
-            $table->string('imaging_accession')->nullable();
+        Schema::create('latent_patient_similarities', function (Blueprint $table) {
+            $table->string('from_patient');
+            $table->string('to_patient');
+            $table->float('dist_l1', $precision = 8, $scale = 7);
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('samples');
+        Schema::dropIfExists('latent_patient_similarities');
     }
 };

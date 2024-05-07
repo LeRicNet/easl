@@ -35,8 +35,8 @@ class TargetPatientHeader extends Component
 
     public function getPatientName()
     {
-        $patient = intval(CurrentPatient::first()->patient);
-        $patientNameJSON = PatientKey::where('patient', $patient)
+        $patient = intval(trim(CurrentPatient::first()->patient, 'ACP'));
+        $patientNameJSON = PatientKey::where('studyIdentifier', $patient)
             ->select('patientName')
             ->get();
 

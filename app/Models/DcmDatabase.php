@@ -13,7 +13,7 @@ class DcmDatabase extends Model
      *
      * @var string
      */
-    protected $table = 'dcmdatabase';
+    protected $table = 'dcm_database2';
 
     /**
      * The primary key associated with the table.

@@ -10,6 +10,7 @@ class Mainview extends Component
 
     protected $listeners = [
         'showComparison' => 'showcomparison',
+        'showTaskSurvey' => 'showtasksurvey',
         'autocomplete' => 'autocomplete',
         'updateMainview' => 'render'
     ];
@@ -27,6 +28,11 @@ class Mainview extends Component
     public function autocomplete()
     {
         $this->mode = 'autocomplete';
+    }
+
+    public function showtasksurvey()
+    {
+        $this->mode = 'survey';
     }
     
     public function render()

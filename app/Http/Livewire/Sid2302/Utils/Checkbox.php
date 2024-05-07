@@ -25,6 +25,7 @@ class Checkbox extends Component
     
     public $autocomplete = false;
     public $divKey;
+    public $target_patient = 'missing';
 
     protected $listeners = [
         'nextPatient' => 'nextpatient',
@@ -63,7 +64,8 @@ class Checkbox extends Component
     {
         if ($this->inputType == 'checkbox') {
             $patient = intval(CurrentPatient::first()->patient);
-            $featureValue = PatientPredictions::where('patient', $patient)
+            $formattedPatient = 'ACP' . $patient;
+            $featureValue = PatientPredictions::where('patient', $formattedPatient)
                 ->select($this->featureDBKey)
                 ->get();
             if (count($featureValue) > 0) {
@@ -96,6 +98,11 @@ class Checkbox extends Component
     
     public function render()
     {
+        if ($this->target_patient == 'missing') {
+            $this->target_patient = intval(CurrentPatient::first()->patient);
+        } elseif ($this->target_patient == 'testsim') {
+            $this->target_patient = intval(CurrentPatient::first()->patient) + 1;
+        }
         $this->makeStringSafe();
         $this->makeKey();
         $this->getPrediction();

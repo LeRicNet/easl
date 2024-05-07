@@ -4,18 +4,23 @@
     
     <script>
         function drawBarchart(elem, updateChart=false) {
+
+            var pos  = @json($featureValue)*100
+            pos = pos.toFixed(2);
+            var neg = 100 - pos;
+
             var trace1 = {
-                x: [@json($featureValue)],
+                x: [pos],
                 y: ['y'],
                 name: 'true',
                 type: 'bar',
                 orientation: 'h',
                 marker: {color: 'rgb(161,215,106)'},
-                text: [@json($featureValue)],
+                text: [pos],
                 textposition: 'auto'
             };
             var trace2 = {
-                x: [100 - @json($featureValue)],
+                x: [neg],
                 y: ['y'],
                 name: 'false',
                 type: 'bar',
@@ -63,18 +68,22 @@
         
         document.addEventListener('refreshBarchart', function(e) {
             let elem = document.querySelector('#{{ $divKey }}');
+            var pos  = elem.value*100
+            pos = pos.toFixed(2);
+            var neg = 100 - pos;
+
             var trace1 = {
-                x: [elem.value],
+                x: [pos],
                 y: ['y'],
                 name: 'true',
                 type: 'bar',
                 orientation: 'h',
                 marker: {color: 'rgb(161,215,106)'},
-                text: [elem.value],
+                text: [pos],
                 textposition: 'auto'
             };
             var trace2 = {
-                x: [100 - elem.value],
+                x: [neg],
                 y: ['y'],
                 name: 'false',
                 type: 'bar',

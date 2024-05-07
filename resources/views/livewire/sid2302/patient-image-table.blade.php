@@ -1,18 +1,21 @@
 <div class="overflow-auto">
     <!-- Table -->
-    <table id="patientImageTable"
-            class="min-w-full leading-normal compact border-2 border-slate-500">
+    <table id="{{ $tableID }}"
+            class="min-w-full leading-normal compact border-2 border-slate-500 table table-sm table-responsive table-condensed table-hover data-table">
         <thead>
         <tr>
             <th class="text-center px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                Acquisition Date
-            </th>
-            <th class="text-center px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                 Modality
             </th>
+            <th class="text-center px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                Study Description
+            </th>
+{{--            <th class="text-center px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">--}}
+{{--                Images (n)--}}
+{{--            </th>--}}
         </tr>
         </thead>
-        <tbody>
+        <tbody class="text-xs">
         <!-- Intentionally Blank -->
         </tbody>
     </table>
@@ -22,7 +25,7 @@
 
             function renderPatientTable() {
                 // Order Request Table
-                let order_request_table = $('#patientImageTable').DataTable({
+                let table = $('#{{ $tableID }}').DataTable({
                     retrieve: true,
                     destroy: true,
                     processing: true,
@@ -34,9 +37,10 @@
                     },
                     columns: [
                         // {data: "patient", name: "patient"},
-                        {data: "acquiredOn", name: "acquiredOn"},
-                        {data: "modality", name: "modality"}
-                        // {data: "images", name: "Images (n)"},
+                        // {data: "acquiredOn", name: "acquiredOn"},
+                        {data: "modality", name: "modality"},
+                        {data: 'study_description', name: 'study_description'}
+                        // {data: "n_images", name: "Images (n)"}
                         // {data: "mfg", name: "mfg"},
                         // {data: "mfg_model", name: "mfg_model"},
                         // {data: "study_id", name: "study_id"},
@@ -44,7 +48,7 @@
                     ],
                     columnDefs: [
                         {
-                            targets: [0, 1],
+                            targets: [0],
                             className: 'dt-center'
                         }
                     ],
@@ -53,7 +57,18 @@
                     lengthChange: false,
                     dom: 't'
                 });
+                // Row Selection
+                $('#{{ $tableID }}').on('click', 'tr', function () {
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                    } else {
+                        table.$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                });
             };
+
+
 
             $(function () {
                 $.ajaxSetup({
@@ -67,7 +82,7 @@
             });
             
             document.addEventListener('refreshPatientTable', function(e) {
-               let order_request_table = $('#patientImageTable').DataTable();
+               let order_request_table = $('#{{ $tableID }}').DataTable();
                order_request_table.ajax.reload();
             });
         </script>

@@ -15,10 +15,10 @@ class ActiveSession extends Model
      */
     protected $table = 'sid2302userstudy';
 
-    /**
-     * The primary key associated with the table.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'sessionID';
+//    /**
+//     * The primary key associated with the table.
+//     *
+//     * @var string
+//     */
+////    protected $primaryKey = 'sessionID';
 }

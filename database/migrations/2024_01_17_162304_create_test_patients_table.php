@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('project', function (Blueprint $table) {
+        Schema::create('test_patients', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('title');
-            $table->string('data_table_id');
-            $table->longText('project_abstract');
-//            $table->string('model_table_id');
-//            $table->string('artifacts_table_id');
-//            $table->string('experiments_table_id');
+            $table->string('patient');
+            $table->longText('note');
+            $table->boolean('ai_enabled');
         });
     }
 
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project');
+        Schema::dropIfExists('test_patients');
     }
 };

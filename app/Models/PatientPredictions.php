@@ -13,7 +13,7 @@ class PatientPredictions extends Model
      *
      * @var string
      */
-    protected $table = 'patientpredictions';
+    protected $table = 'patientpredictions2';
 
     /**
      * The primary key associated with the table.

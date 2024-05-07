@@ -19,6 +19,7 @@ use App\Http\Controllers\Flask\GptController;
 use App\Http\Controllers\Dicom\PatientViewController;
 
 use App\Http\Controllers\PatientImageTableController;
+use App\Http\Controllers\ComparisonPatient;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,9 +42,9 @@ require __DIR__.'/auth.php';
 | Standard Views include the landing page, user dashboard, and the RStudio and Jupyter IDEs.
 */
 
-Route::get('/', function () {
-    return view('landing');
-});
+//Route::get('/', function () {
+//    return view('landing');
+//});
 
 # User Dashboard
 Route::get('userdashboard', function () {
@@ -178,6 +179,18 @@ Route::get('/sid2302', function() {
     return view('sid2302.interface');
 });
 
+Route::get('/sid2302/barco-left', function() {
+    return view('sid2302.barco-left');
+});
+
+Route::get('/sid2302/barco-right', function() {
+    return view('sid2302.barco-right');
+});
+
+Route::get('/sid2302/ehr', function() {
+    return view('sid2302.ehr');
+});
+
 Route::redirect("/flask", Request::root() . ':' . ':5000/predict_diagnosis_radar/c921488f-cd651a4e-88483aaa-01683063-6338d780');
 
 Route::resource('order-request-data', OrderRequestsController::class);
@@ -193,6 +206,11 @@ Route::resources([
     "flask/gpt" => GptController::class
 ]);
 
+Route::resource('comparison-patient', ComparisonPatient::class);
+Route::get('comparison/{id}', [ComparisonPatient::class, 'update_comparison_patient']);
+
 Route::get('dicoms/show_series/{patient_name}', [DicomInfoAjaxController::class, 'show_series']);
 
 Route::resource('patient-image-table', PatientImageTableController::class);
+
+Route::redirect('viewer', Request::root() . ":" . env('VIEWER_HTTP_PORT'));

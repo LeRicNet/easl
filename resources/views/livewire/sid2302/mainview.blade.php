@@ -15,6 +15,10 @@
                 <livewire:sid2302.ui.autocomplete-view />
                 @break
 
+            @case('survey')
+                <livewire:sid2302.utils.task-survey />
+                @break
+
         @endswitch
 
 

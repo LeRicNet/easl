@@ -13,16 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('task_survey_form', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('title');
-            $table->text('body');
-            $table->string('image')->nullable();
-            $table->string('slug')->unique();
-            $table->boolean('active')->default(1);
-            $table->boolean('featured')->default(0);
             $table->timestamps();
+            $table->string('sessionID');
+            $table->string('currentPatient');
+            $table->string('difficulty')->nullable();
+            $table->string('most_difficult')->nullable();
+            $table->string('confidence')->nullable();
+            $table->string('most_confident')->nullable();
         });
     }
 
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('task_survey_form');
     }
 };

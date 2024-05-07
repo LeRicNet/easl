@@ -2,12 +2,25 @@
     <!-- Numeracy Survey -->
     <div class="w-auto mx-96 border-2 border-gray-500 rounded-lg shadow-lg p-2 bg-white">
 
+        <div class="font-medium text-3xl text-center text-zinc-800
+        py-3 border border-gray-800 bg-gradient-to-tr from-slate-200 to-slate-300">
+            Exit Survey
+        </div>
+
         <div class="m-2 text-lg font-semibold text-gray-900">
-            Thank you for participating in our study. At the end of this session, we invite you to complete the NASA Task Load Index (NASA-TLX) survey.<br><br>
+            To close the session, we invite you to complete the System Usability Scale (SUS), a simple ten-item questionnaire
+            regarding this system's usability.
+        </div>
 
-            NASA-TLX is a widely used subjective, multidimensional assessment tool that rates perceived workload to help us understand user experiences in various settings. It measures workload along six different dimensions: Mental Demand, Physical Demand, Temporal Demand, Performance, Effort, and Frustration.<br><br>
+        <div class="m-2 text-lg text-gray-900">
+            To complete the survey, please rate your subjective experience across these six aspects on a scale from
+            1 (Strongly Disagree) to 5 (Strongly Agree).
+        </div>
 
-            To complete the survey, please rate your subjective experience across these six aspects on a scale from 0 (very low) to 100 (very high). Note that there are no right or wrong answers, and your responses should reflect your own experience based on today’s session. The information you provide will be crucial to improving our processes.
+        <div class="m-2 text-sm text-slate-500">
+            Note: there are no right or wrong answers,
+            and your responses should reflect your own experience based on today’s session. The information
+            you provide will be crucial to improving our processes.
         </div>
 
         <!-- Divider -->
@@ -15,7 +28,7 @@
 
         <form>
 
-            <livewire:sid2302.utils.tlx />
+            <livewire:sid2302.utils.sus />
 
         </form>
     </div>

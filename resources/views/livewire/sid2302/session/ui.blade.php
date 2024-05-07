@@ -1,4 +1,4 @@
-<div class="flex flex-row h-screen static">
+<div class="flex flex-row h-screen static overflow-hidden">
     <!-- Container for content -->
 
     <!-- Left Sidebar: Tasks -->

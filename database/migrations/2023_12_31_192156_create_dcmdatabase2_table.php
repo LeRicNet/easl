@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('order_requests', function (Blueprint $table) {
-            $table->id();
-//            $table->timestamps();
-            $table->string('name');
-            $table->string('reason');
+        Schema::create('dcmdatabase2', function (Blueprint $table) {
+            $table->string('patient');
+            $table->string('dcm_file');
+            $table->string('modality');
+            $table->string('mfg');
+            $table->string('study_description');
+            $table->string('study_uid');
+            $table->string('series_uid');
         });
     }
 
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderrequests');
+        Schema::dropIfExists('dcmdatabase2');
     }
 };

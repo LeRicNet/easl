@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Sid2302\Session;
 
 use Livewire\Component;
-use App\Models\Scene;
+use App\Models\Scene2 as Scene;
 
 class PersonaSurvey extends Component
 {
@@ -16,6 +16,7 @@ class PersonaSurvey extends Component
     
     public function nextscene()
     {
+        dump('fired-ps');
         date_default_timezone_set('America/Denver');
         $current_session = Scene::first()->getAttributes()['sessionID'];
         $session_completed_at = date('Y-m-d H:i:s', time());
@@ -25,7 +26,7 @@ class PersonaSurvey extends Component
             'scene' => 'persona_survey',
             'completed' => $session_completed_at
         ]);
-        $this->emitUp('sceneCompleted');
+        $this->emitTo('sid2302.session', 'start_instructions');
     }
     
     public function render()

@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('parent_series', function (Blueprint $table) {
-            $table->string('PatientName');
-            $table->string('parent_series');
-            $table->string('modality');
-            $table->string('SeriesDescription');
-            $table->string('count');
+        Schema::create('patient_predictions2', function (Blueprint $table) {
+            $table->string('patient');
+            $table->string('feature');
+            $table->float('value', $precision=4, $scale=1);
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parentseries');
+        Schema::dropIfExists('patient_predictions2');
     }
 };

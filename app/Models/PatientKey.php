@@ -13,7 +13,7 @@ class PatientKey extends Model
      *
      * @var string
      */
-    protected $table = 'patientkey';
+    protected $table = 'patientkey2';
 
     /**
      * The primary key associated with the table.

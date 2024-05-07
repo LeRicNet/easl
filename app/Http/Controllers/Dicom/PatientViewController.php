@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Dicom;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\CurrentPatient;
+use App\Models\LatentPatientSimilarity;
 
 class PatientViewController extends Controller
 {
@@ -16,13 +18,20 @@ class PatientViewController extends Controller
     public function index(Request $request)
     {
         //
-        $dataset = DB::table('similar_patients_test')
-            ->select([
-                'Name', 'DateOfBirth', 'Sex', 'PrimarySymptom', 'Modality', 'ProtocolName', 'PredDx', 'Similarity', 'orthancid'
-            ])
-            ->get();
+        $formattedPatient = "ACP" . CurrentPatient::first()->patient;
+        $dataset = LatentPatientSimilarity::where("from_patient", $formattedPatient)
+            ->orderBy('dist_l1', 'desc')->limit(5)->get();
+
+        $array_results = array();
+        foreach($dataset->all() as $k => $v) {
+            $array_results[$k] = [
+                'from_patient' => $v->from_patient,
+                'to_patient' => $v->to_patient,
+                'dist_l1' => $v->dist_l1
+            ];
+        }
 //
-        return response()->json(["data" => $dataset], 200, options: JSON_HEX_QUOT);
+        return response()->json(["data" => $array_results], 200, options: JSON_HEX_QUOT);
     }
 
     /**
