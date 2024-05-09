@@ -222,3 +222,4 @@ Route::resource('patient-image-table', PatientImageTableController::class);
 Route::redirect('viewer', Request::root() . ":" . env('VIEWER_HTTP_PORT'));
 
 Route::resource('/eyetracking', EyeTracking::class);
+Route::resource('/dcm', DicomController::class);
