@@ -9,6 +9,7 @@ use App\Models\BarcoLeft as BL;
 use App\Models\CurrentPatient;
 use App\Models\DcmDatabase;
 use App\Models\PatientKey;
+use App\Jobs\StoreTrackingJob;
 
 class SlimView extends Component
 {
@@ -17,6 +18,10 @@ class SlimView extends Component
     public $considering_view = false;
     public $current_scene = 'consent';
     public $url = 'http://amc-tensor1.ucdenver.pvt:808/ohif/viewer?StudyInstanceUIDs=';
+
+//    public $listeners = [
+//        'storeTracking' => 'storeTracking'
+//    ];
 
     public function getSessionStatus()
     {
@@ -57,6 +62,34 @@ class SlimView extends Component
                 ->study_uid;
         }
     }
+
+    public function storeTracking($time, $uid)
+    {
+        $data = 'x';
+//        // Get the data from the session
+//        $data = session('trackingData', []);
+//
+//        // Add the new data to the array
+//        $data[] = [
+//            'sessionID' => 'eyetracking-test-1',
+//            'ui_timestamp' => $time,
+//            'current_uid' => $uid
+//        ];
+//
+//        // If we have 10 records, insert them and clear the array
+//        if (count($data) >= 10) {
+////            EyeTracking::insert($data);
+////            $data = [];
+//        }
+//
+//        // Store the data back in the session
+//        session(['trackingData' => $data]);
+    }
+    public function test($message)
+    {
+        info($message);
+    }
+
 
     public function render()
     {

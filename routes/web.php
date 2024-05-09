@@ -21,6 +21,8 @@ use App\Http\Controllers\Dicom\PatientViewController;
 use App\Http\Controllers\PatientImageTableController;
 use App\Http\Controllers\ComparisonPatient;
 
+use App\Http\Controllers\EyeTracking;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -207,7 +209,7 @@ Route::resources([
     "flask/radarchart" => RadarchartController::class,
     "flask/scatterplot" => ScatterplotController::class,
     "flask/boxplot" => BoxplotController::class,
-    "flask/gpt" => GptController::class
+    "flask/gpt" => GptController::class,
 ]);
 
 Route::resource('comparison-patient', ComparisonPatient::class);
@@ -218,3 +220,5 @@ Route::get('dicoms/show_series/{patient_name}', [DicomInfoAjaxController::class,
 Route::resource('patient-image-table', PatientImageTableController::class);
 
 Route::redirect('viewer', Request::root() . ":" . env('VIEWER_HTTP_PORT'));
+
+Route::resource('/eyetracking', EyeTracking::class);
